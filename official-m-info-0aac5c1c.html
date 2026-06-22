@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+    <title>竞彩网 · 稳定触达 · 清晰指引</title>
+    <style>
+        /* 全局重置 & 字体 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f8f9fc;
+            color: #2c3e4f;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 深色头图 —— 多图层渐变 + 微妙纹理 */
+        .hero {
+            min-height: 52vh;
+            background: linear-gradient(145deg, #0b1a2e 0%, #17324a 45%, #1f405f 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.8rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.012) 0px,
+                    rgba(255, 255, 255, 0.012) 6px,
+                    rgba(255, 255, 255, 0.025) 6px,
+                    rgba(255, 255, 255, 0.025) 12px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 780px;
+            text-align: center;
+            color: #e7edf5;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            padding: 0.1rem 0.6rem;
+            background: rgba(255, 209, 102, 0.18);
+            border-radius: 28px;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.85;
+            max-width: 580px;
+            margin: 0.4rem auto 1.6rem;
+            line-height: 1.6;
+            color: #cad7e8;
+        }
+
+        .hero-highlight {
+            display: inline-block;
+            background: #f5c842;
+            color: #0b1a2e;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.35rem 1.8rem;
+            border-radius: 60px;
+            letter-spacing: 0.04em;
+            box-shadow: 0 2px 10px rgba(245, 200, 66, 0.2);
+        }
+
+        /* 浅色主内容区 */
+        .wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.8rem 2rem 5.5rem;
+        }
+
+        /* 卡片网格 —— 差异化布局 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.6rem 0 3.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 4px 16px rgba(0, 20, 30, 0.05), 0 1px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+            border: 1px solid rgba(210, 222, 235, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(23, 50, 74, 0.08);
+        }
+
+        .card-icon {
+            font-size: 1.7rem;
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1d3347;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3f566b;
+            margin-bottom: 0.3rem;
+            line-height: 1.6;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #ebf2fa;
+            color: #1f4b6e;
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.15rem 0.7rem;
+            border-radius: 40px;
+            margin-top: 0.3rem;
+        }
+
+        /* 使用建议 / 场景段落 —— 更生活化 */
+        .scenario-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin: 2.8rem 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+            border-left: 6px solid #f5c842;
+        }
+
+        .scenario-block h2 {
+            font-size: 1.5rem;
+            font-weight: 550;
+            color: #102b40;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .scenario-block p {
+            margin-bottom: 0.9rem;
+            color: #2e475c;
+        }
+
+        .scenario-block ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .scenario-block li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            color: #1f3a4f;
+        }
+
+        .scenario-block li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #f5c842;
+            font-size: 0.9rem;
+        }
+
+        /* 提醒 / FAQ 摘要区 —— 简洁，可信 */
+        .note-box {
+            background: #f3f6fb;
+            border-radius: 18px;
+            padding: 1.8rem 2.2rem;
+            margin: 2.2rem 0 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .note-box .text-side {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .note-box h3 {
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: #1a3349;
+            margin-bottom: 0.4rem;
+        }
+
+        .note-box p {
+            color: #3a556b;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-mini {
+            flex: 1;
+            min-width: 140px;
+            background: white;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            margin-left: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #102b40;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-mini dd {
+            font-size: 0.85rem;
+            color: #3a5a74;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #e0e9f2;
+            padding-bottom: 0.4rem;
+        }
+
+        .faq-mini dd:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #c9732a;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201, 115, 42, 0.25);
+            transition: border-color 0.2s, color 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #a15d1f;
+            border-bottom-color: #a15d1f;
+        }
+
+        /* 句子中链接引用 */
+        .inline-link-example a {
+            font-weight: 600;
+        }
+
+        /* 尾部 */
+        .page-footer {
+            border-top: 1px solid #e6edf5;
+            padding: 2.2rem 0 1rem;
+            text-align: center;
+            color: #6a7f92;
+            font-size: 0.85rem;
+        }
+
+        .page-footer small {
+            opacity: 0.7;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+            }
+            .wrapper {
+                padding: 1.8rem 1.2rem 4rem;
+            }
+            .scenario-block {
+                padding: 1.4rem 1.2rem;
+            }
+            .note-box {
+                flex-direction: column;
+                padding: 1.4rem;
+            }
+            .faq-mini {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .hero {
+                min-height: 42vh;
+                padding: 2rem 1rem 3rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>看准入口，<span>安心浏览</span></h1>
+            <p class="hero-sub">从熟悉的站点出发，用清晰的节奏了解竞彩动态<br>没有绕路的焦虑，只有顺畅的阅读体验。</p>
+            <span class="hero-highlight">持续稳定 · 入口明确</span>
+        </div>
+    </section>
+
+    <div class="wrapper">
+
+        <!-- 简介摘要 + 亮点卡片网格 -->
+        <p style="font-size: 1.05rem; margin-top: 0.6rem; color: #1e3c55; max-width: 760px;">
+            竞彩网的信息窗口始终面向日常关注体育赛事的爱好者。无论你是在午后翻看对阵，还是晚间浏览赛果，一个<strong>稳定、直接的访问入口</strong>能省下不少时间。
+            下面这份摘要，帮你快速了解它的定位与特点。
+        </p>
+
+        <div class="feature-grid">
+            <div class="card">
+                <span class="card-icon">📌</span>
+                <h3>固定入口</h3>
+                <p>浏览器收藏夹里存好 <a href="https://official-m-sporttery.com">竞彩网</a>，每次想看最新赛事信息，一步直达，不用反复搜索。</p>
+                <span class="tag">日常习惯</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔄</span>
+                <h3>信息同步</h3>
+                <p>页面结构清晰，赛程、数据、公告分区存放。适合赛前看一眼，赛后做个小记录。</p>
+                <span class="tag">赛日前后的节奏</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧭</span>
+                <h3>低干扰阅读</h3>
+                <p>没有过度弹窗，没有复杂跳转。把注意力留在内容本身，而不是研究“该点哪里”。</p>
+                <span class="tag">沉浸感</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">📱</span>
+                <h3>多端适应</h3>
+                <p>无论手机、平板还是电脑，页面都会自动调整。在路上、沙发上、书桌前，都能舒服使用。</p>
+                <span class="tag">灵活场景</span>
+            </div>
+        </div>
+
+        <!-- 使用建议 & 场景 (生活化) -->
+        <div class="scenario-block">
+            <h2>怎么用更顺手？几个小场景</h2>
+            <p>如果你刚接触 <a href="https://official-m-sporttery.com">竞彩网</a>，或者想换个更轻松的浏览方式，不妨参考下面这些用法：</p>
+            <ul>
+                <li><strong>日常“赛前扫一眼”：</strong> 打开页面看看当天有哪些热门场次，赔率变动有没有值得注意的地方，一两分钟就能掌握概貌。</li>
+                <li><strong>赛后对比数据：</strong> 比赛结束翻翻官方统计，进球、控球率、射正次数，和球友聊起来更有依据。</li>
+                <li><strong>公告与规则更新：</strong> 偶尔留意站内公告，了解玩法调整或活动信息，心里有数才踏实。</li>
+                <li><strong>固定入口收藏：</strong> 把链接存到浏览器书签栏，或者设成主页，每次打开都是熟悉的界面，省心。</li>
+            </ul>
+            <p style="margin-top: 0.8rem; background: #f1f5fa; padding: 0.6rem 1rem; border-radius: 40px; display: inline-block;">📎 不用记复杂地址，一个入口就够了。</p>
+        </div>
+
+        <!-- 可信但克制的说明 + FAQ 摘要 -->
+        <div class="note-box">
+            <div class="text-side">
+                <h3>关于访问，说几点实在的</h3>
+                <p>竞彩网是官方信息展示平台，提供赛事数据、开奖公告等参考内容。注意理性看待，量力而行，把它当作了解体育赛事的辅助工具。</p>
+                <p style="margin-top: 0.4rem;">🔹 页面内容仅供参考，不构成任何建议。<br>
+                🔹 如遇访问波动，稍等片刻再试即可，通常很快恢复。</p>
+                <p style="margin-top: 0.6rem;">
+                    <a href="https://official-m-sporttery.com">竞彩网</a> 的域名稳定，日常打开基本流畅，偶尔维护会提前公告。
+                </p>
+            </div>
+            <dl class="faq-mini">
+                <dt>❓ 是否需要注册？</dt>
+                <dd>浏览大部分内容无需登录。部分功能或设置可能涉及账户，以页面实际提示为准。</dd>
+                <dt>❓ 数据更新快吗？</dt>
+                <dd>通常赛果和赔率变动会实时或准实时同步，具体视比赛密集程度略有延迟。</dd>
+                <dt>❓ 移动端好用吗？</dt>
+                <dd>自适应布局，横竖屏都可正常阅读，按钮大小适中。</dd>
+            </dl>
+        </div>
+
+        <!-- 尾部 -->
+        <footer class="page-footer">
+            <small>一份关于稳定入口与浏览习惯的说明 · 内容仅供个人参考</small>
+            <br>
+            <span style="opacity: 0.5;">😊 用熟悉的节奏，看喜欢的比赛</span>
+        </footer>
+
+    </div>
+    <!-- wrapper 结束 -->
+
+</body>
+</html>
