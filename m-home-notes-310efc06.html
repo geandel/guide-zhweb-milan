@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu · 日常查询与对照参考</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f5f6f8;
+      color: #1e1f2b;
+      line-height: 1.6;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #0d0f1d;
+      color: #e8eaf0;
+      padding: 3.2rem 1.5rem 2.8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -20%;
+      width: 160%;
+      height: 180%;
+      background: radial-gradient(circle at 30% 30%, rgba(48, 99, 200, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #bcc3d4;
+      position: relative;
+    }
+
+    /* 导航条（轻量） */
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      padding: 1rem 1rem 0.2rem;
+      background: #0d0f1d;
+      flex-wrap: wrap;
+    }
+
+    .top-nav a {
+      color: #b1bad4;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.3rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .top-nav a:hover {
+      color: #f0f3ff;
+      border-bottom-color: #5279e0;
+    }
+
+    /* 正文浅色区 */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 3rem;
+    }
+
+    .intro {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .intro h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #1b1c2a;
+    }
+
+    .intro p {
+      margin: 0.8rem 0;
+    }
+
+    .accent-link {
+      color: #2b5fd9;
+      text-decoration: none;
+      font-weight: 450;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .accent-link:hover {
+      border-bottom-color: #2b5fd9;
+    }
+
+    /* 三个场景卡片 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s;
+      border: 1px solid #eaecf2;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scene-card h3 span {
+      background: #eef1f9;
+      border-radius: 30px;
+      padding: 0 0.6rem;
+      font-size: 0.8rem;
+      color: #2b4b8a;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #353749;
+    }
+
+    .scene-card ul {
+      margin-top: 0.7rem;
+      padding-left: 1.2rem;
+      color: #3a3f52;
+      font-size: 0.9rem;
+    }
+
+    .scene-card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-block {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .faq-block h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2b5fd9;
+      padding-left: 1rem;
+    }
+
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #eef0f5;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #1a1f2e;
+    }
+
+    .faq-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #41455a;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #61677e;
+      border-top: 1px solid #dde0e7;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .footnote a {
+      color: #2b5fd9;
+      text-decoration: none;
+    }
+
+    .footnote a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .scene-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .intro {
+        padding: 1.5rem 1.2rem;
+      }
+      .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .top-nav {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航 -->
+  <div class="top-nav">
+    <a href="#">日常</a>
+    <a href="#">对照</a>
+    <a href="#">延伸</a>
+    <a href="#">笔记</a>
+  </div>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>leyu · 查、对、延</h1>
+    <p>围绕日常使用场景，提供轻量查询基准、对照参考与延伸阅读线索。不做泛泛罗列，侧重可操作的信息密度。</p>
+  </header>
+
+  <!-- 正文浅色区 -->
+  <div class="container">
+
+    <!-- 简短介绍 -->
+    <section class="intro">
+      <h2>从一次查询到一组对照</h2>
+      <p>大多数信息缺口来自「不确定」和「没对照」。无论是核实一个术语、对比两套参数，还是追溯一条线索的来处，一个可靠的起点能节省大量筛选时间。这就是 <a href="https://m-home-leyu.com" class="accent-link">leyu</a> 所关注的范畴：不是堆砌页面，而是搭建可复用的查询-对照-延伸框架。</p>
+      <p>以下三个模块分别对应高频使用场景，每个模块都包含核心字段和可扩展的对照维度。</p>
+    </section>
+
+    <!-- 三个场景模块（卡片） -->
+    <div class="scene-grid">
+      <div class="scene-card">
+        <h3>📋 日常查询 <span>基准</span></h3>
+        <p>频繁遇到的参数、定义、分类标准，需要快速定位而不是二次筛选。leyu 对常见条目做扁平化整理，保留关键字段并标注来源层级。</p>
+        <ul>
+          <li>术语速查 / 缩略语对照</li>
+          <li>单位、版本、编码对应</li>
+          <li>状态标识与常见错误码</li>
+        </ul>
+      </div>
+
+      <div class="scene-card">
+        <h3>🔁 对照阅读 <span>差异</span></h3>
+        <p>同一概念在不同语境下的表述差异，或新旧版本之间的字段变化。对照视图将并排信息结构化，减少跳转损耗。</p>
+        <ul>
+          <li>版本变更要点 (changelog 摘要)</li>
+          <li>多来源定义对比</li>
+          <li>参数范围与边界说明</li>
+        </ul>
+      </div>
+
+      <div class="scene-card">
+        <h3>📎 延伸线索 <span>关联</span></h3>
+        <p>从一个知识点出发，关联相邻概念、参考文档或典型用例。延伸部分保持轻量，只收录经过校验的链接或索引。</p>
+        <ul>
+          <li>相关规范 / 标准编号</li>
+          <li>典型实现或应用场景</li>
+          <li>进一步阅读的稳定入口</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <section class="faq-block">
+      <h2>日常使用中的常见说明</h2>
+
+      <div class="faq-item">
+        <strong>Q：查询结果和我预期的有出入，怎么处理？</strong>
+        <p>先核对上下文版本或分类标签，leyu 的对照区会列出可能的变体。如果仍然不一致，建议参考原始文档或官方发布页面。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：对照维度是否可以自定义扩展？</strong>
+        <p>当前模块提供固定维度，但每个卡片下的列表项可作为自定义对照的起点，你可以根据手头资料增删条目，框架保持开放。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：延伸线索的时效性如何？</strong>
+        <p>延伸部分主要引用稳定的规范编号或长期有效的索引页，不依赖短期链接。个别案例会标注参考日期。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：为什么强调「基准」和「差异」分开？</strong>
+        <p>基准解决「是什么」，差异解决「和什么不同」。分开呈现可以减少认知干扰，尤其适合需要快速确认或反复对比的使用习惯。</p>
+      </div>
+    </section>
+
+    <!-- 一句话嵌入链接 + 脚注 -->
+    <div class="footnote">
+      <p>本页面围绕日常查询与对照场景设计，更多结构示例可参考 <a href="https://m-home-leyu.com">leyu</a> 的索引页。</p>
+      <p style="margin-top: 0.5rem;">内容仅供信息参考，不构成操作建议。版本及参数请以实际文档为准。</p>
+    </div>
+
+  </div>
+</body>
+</html>
