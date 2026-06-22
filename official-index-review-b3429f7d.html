@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafaf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.75;
+      color: #1a1a1a;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* 标题层级 — 极简清晰 */
+    h1 {
+      font-size: 2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: #111;
+    }
+
+    .subhead {
+      color: #5f5f5f;
+      font-size: 1rem;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 550;
+      margin-top: 2.8rem;
+      margin-bottom: 0.75rem;
+      color: #1e1e1e;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.4rem;
+      color: #2b2b2b;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+    }
+
+    a {
+      color: #1f4a7a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: #0a2c4a;
+      text-decoration-thickness: 2px;
+    }
+
+    /* 卡片式说明区 + 提示区 + 相关信息 */
+    .card-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #ededed;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-card strong {
+      font-weight: 550;
+      color: #1a1a1a;
+    }
+
+    .note {
+      background: #f3f5f7;
+      border-left: 4px solid #8b9eb0;
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .note p {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #2e3b47;
+    }
+
+    .related-list {
+      list-style: none;
+      margin: 0.75rem 0 0.25rem 0;
+      padding: 0;
+    }
+
+    .related-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #eaeaea;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .related-list li:last-child {
+      border-bottom: none;
+    }
+
+    .related-list li::before {
+      content: "·";
+      color: #6f7e8c;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eef1f4;
+      border-radius: 20px;
+      padding: 0.1rem 0.75rem;
+      font-size: 0.75rem;
+      color: #3d4b5a;
+      margin-left: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e2e2;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #6f6f6f;
+      margin-top: 2.5rem;
+      border-top: 1px solid #eaeaea;
+      padding-top: 1.5rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.25rem 0.75rem;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .info-card {
+        padding: 1.2rem;
+      }
+
+      .note {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>竞彩网 · 简明知识库</h1>
+  <div class="subhead">从指南到提醒 · 一份整理过的说明页</div>
+
+  <!-- hero / 引言 -->
+  <p>
+    以下内容围绕 <a href="https://official-index-sporttery.com">竞彩网</a> 的基本定位、信息查阅方式以及常见使用场景做了概要梳理。
+    这份页面更像一个入口式的目录，帮助你快速了解网站功能边界与访问时的注意事项。
+  </p>
+
+  <!-- 卡片区：介绍 + 特点 + 场景 混合 -->
+  <div class="card-section">
+    <div class="info-card">
+      <h2>① 站点定位与说明</h2>
+      <p>
+        <strong>竞彩网</strong> 是围绕体育彩票竞猜类游戏提供信息服务的平台，内容涵盖赛事数据、开奖结果、玩法介绍及公告通知。
+        网站本身不直接处理交易，而是作为官方信息发布与查询的参考源。
+      </p>
+      <p>
+        如果你正在寻找竞彩类游戏的规则说明或近期赛程，可直接浏览站内各栏目。所有信息应以站点公示的最新版本为准。
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h2>② 常用信息分区</h2>
+      <p>根据多数访问者的反馈，以下三个区域使用频率较高：</p>
+      <ul class="related-list">
+        <li>竞彩足球 / 篮球 赛程与赔率<span class="tag">数据区</span></li>
+        <li>开奖公告 与 历史比对<span class="tag">查询区</span></li>
+        <li>玩法规则 与 快速入门指南<span class="tag">说明区</span></li>
+      </ul>
+      <p style="margin-top: 0.6rem;">
+        每个分区内部通常配有折叠式导航或分类筛选，可按日期、联赛、玩法类型缩小范围。
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h2>③ 典型使用场景</h2>
+      <p>
+        · 赛前查阅：查看当日竞彩对阵、让球/胜平负参考数值。<br>
+        · 赛后核对：通过官方开奖页面比对实际结果与彩果。<br>
+        · 规则研读：当遇到玩法疑问时，查阅《竞彩游戏规则》章节。
+      </p>
+      <p>
+        建议在日常使用中将 <a href="https://official-index-sporttery.com">竞彩网</a> 添加为浏览器书签，
+        以便快速返回信息主页。
+      </p>
+    </div>
+  </div>
+
+  <!-- 提示区：访问提醒 + 安全提示 -->
+  <div class="note">
+    <p><strong>▎访问提醒</strong></p>
+    <p>
+      ① 请通过地址栏直接输入或从可信来源访问，避免使用非官方链接。<br>
+      ② 网站页面可能因维护或数据更新暂时调整，如遇显示异常可稍后重试。<br>
+      ③ 任何以“竞彩网”名义索要密码、验证码或资金转账的信息均非官方行为。
+    </p>
+    <p style="margin-top: 0.5rem;">
+      以上提醒适用于所有信息查阅场景，请保持基本的网络安全意识。
+    </p>
+  </div>
+
+  <!-- 相关信息区：FAQ 摘要 + 补充 -->
+  <h2>相关信息 · 常见关注点</h2>
+
+  <h3>▎如何确认信息的时效性？</h3>
+  <p>
+    大部分数据页面顶部或底部会标注更新时间。如果遇到重要赛事或派奖期间，建议以 <a href="https://official-index-sporttery.com">竞彩网</a> 
+    首页公告栏内的最新通知为准。
+  </p>
+
+  <h3>▎是否提供历史数据检索？</h3>
+  <p>
+    网站内通常保留近期的开奖号码与对阵结果，更早的历史数据可能需要通过“数据中心”或“历史查询”模块逐步翻查。
+    部分页面支持按日期范围筛选。
+  </p>
+
+  <h3>▎关于玩法与规则说明</h3>
+  <p>
+    官方规则文档位于网站固定栏目下，内容包含名词解释、奖金计算示例、无效比赛处理方式等。
+    建议初次接触竞彩类游戏的用户先通读对应章节，再结合赛程做模拟理解。
+  </p>
+
+  <hr>
+
+  <p>
+    本页作为知识库入口式介绍，仅做信息整理与提醒。如需直接浏览完整内容，
+    可前往 <a href="https://official-index-sporttery.com">竞彩网</a> 查看各个板块。
+  </p>
+
+  <div class="footer-note">
+    页面内容仅供说明参考 · 具体信息以网站实际展示为准
+  </div>
+
+</div>
+</body>
+</html>
